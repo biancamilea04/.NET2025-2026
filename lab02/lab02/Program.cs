@@ -48,16 +48,10 @@ PatternMatching(books1);
 Console.WriteLine("");
 
 // ======= Static Lambda Filtering =======
-static Func<List<Book>, List<Book>> FilterBooksByYear()
-{
-    return books => books.Where(b => b.YearPublished > 2010).ToList();
-}
-
-var filter = FilterBooksByYear();
-var filteredBooks = filter(books1);
+var filtredBooks = books1.Where(static b => b.YearPublished > 2010).ToList();
 
 Console.WriteLine("=== Static Lambda Function ===");
-Console.WriteLine("Filtered Books: " + string.Join(", ", filteredBooks));
+Console.WriteLine("Filtered Books: " + string.Join(", ", filtredBooks));
 Console.WriteLine("");
 
 // ======= Local Function to add books =======
