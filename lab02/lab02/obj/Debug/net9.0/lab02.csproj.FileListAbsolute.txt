@@ -1,0 +1,14 @@
+C:\Users\Bianca Milea\Desktop\uni\III\.NET2025-2026\lab02\lab02\bin\Debug\net9.0\lab02.exe
+C:\Users\Bianca Milea\Desktop\uni\III\.NET2025-2026\lab02\lab02\bin\Debug\net9.0\lab02.deps.json
+C:\Users\Bianca Milea\Desktop\uni\III\.NET2025-2026\lab02\lab02\bin\Debug\net9.0\lab02.runtimeconfig.json
+C:\Users\Bianca Milea\Desktop\uni\III\.NET2025-2026\lab02\lab02\bin\Debug\net9.0\lab02.dll
+C:\Users\Bianca Milea\Desktop\uni\III\.NET2025-2026\lab02\lab02\bin\Debug\net9.0\lab02.pdb
+C:\Users\Bianca Milea\Desktop\uni\III\.NET2025-2026\lab02\lab02\obj\Debug\net9.0\lab02.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bianca Milea\Desktop\uni\III\.NET2025-2026\lab02\lab02\obj\Debug\net9.0\lab02.AssemblyInfoInputs.cache
+C:\Users\Bianca Milea\Desktop\uni\III\.NET2025-2026\lab02\lab02\obj\Debug\net9.0\lab02.AssemblyInfo.cs
+C:\Users\Bianca Milea\Desktop\uni\III\.NET2025-2026\lab02\lab02\obj\Debug\net9.0\lab02.csproj.CoreCompileInputs.cache
+C:\Users\Bianca Milea\Desktop\uni\III\.NET2025-2026\lab02\lab02\obj\Debug\net9.0\lab02.dll
+C:\Users\Bianca Milea\Desktop\uni\III\.NET2025-2026\lab02\lab02\obj\Debug\net9.0\refint\lab02.dll
+C:\Users\Bianca Milea\Desktop\uni\III\.NET2025-2026\lab02\lab02\obj\Debug\net9.0\lab02.pdb
+C:\Users\Bianca Milea\Desktop\uni\III\.NET2025-2026\lab02\lab02\obj\Debug\net9.0\lab02.genruntimeconfig.cache
+C:\Users\Bianca Milea\Desktop\uni\III\.NET2025-2026\lab02\lab02\obj\Debug\net9.0\ref\lab02.dll
