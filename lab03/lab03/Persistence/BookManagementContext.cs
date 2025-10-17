@@ -3,7 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace lab03.Persistence;
 
-public class BookManagementContext(DbContextOptions<BookManagementContext> options) : DbContext(options)
+public class BookManagementContext : DbContext
 {
-    public DbSet<Book> Books { get; set; }
+    public BookManagementContext(DbContextOptions<BookManagementContext> options) : base(options)
+    {
+    }
+
+    public DbSet<Book> Books { get; set; } = null!;
 }

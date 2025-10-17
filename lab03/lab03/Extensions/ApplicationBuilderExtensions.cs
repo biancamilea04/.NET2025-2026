@@ -1,9 +1,12 @@
-﻿namespace lab03.Middleware;
+﻿using Microsoft.AspNetCore.Builder;
 
-public static class ApplicationBuilderExtensions
+namespace lab03.Middleware
 {
-    public static IApplicationBuilder UseCustomExceptionHandler(this IApplicationBuilder app)
+    public static class ApplicationBuilderExtensions
     {
-        return app.UseMiddleware<ExceptionHandlingMiddleware>();
+        public static IApplicationBuilder UseCustomExceptionHandler(this IApplicationBuilder app)
+        {
+            return app.UseMiddleware<ExceptionHandlingMiddleware>();
+        }
     }
 }

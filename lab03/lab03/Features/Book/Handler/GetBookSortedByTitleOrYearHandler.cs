@@ -11,14 +11,18 @@ public class GetBookSortedByTitleOrYearHandler(BookManagementContext dbContext)
     {
         List<Book> books = null;
 
-        if (request.Title != null)
+        if (request.toOrderBy == "Title")
         {
             books = await _dbContext.Books.OrderBy(b => b.Title).ToListAsync();
-        } else if (request.Year != null)
+        } else if (request.toOrderBy == "Year")
         {
             books = await _dbContext.Books.OrderBy(b => b.Year).ToListAsync();
-        } 
-        
+        }
+        else
+        {
+            throw new ArgumentException("Invalid request");
+        }
+
         return books is not null ? Results.Ok(books) : Results.BadRequest("Invalid sort parameter");
     }
 }
