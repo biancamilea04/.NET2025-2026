@@ -4,6 +4,7 @@ using lab03.Validators;
 using Microsoft.EntityFrameworkCore;
 using FluentValidation;
 using lab03.Middleware;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,12 +43,12 @@ app.UseCustomExceptionHandler();
 
 app.UseHttpsRedirection();
 
-app.MapPost("/books", async (CreateBookRequest request, CreateBookHandler handler) =>
+app.MapPost("/books", async ([FromBody] CreateBookRequest request, [FromServices] CreateBookHandler handler) =>
 {
     return await handler.Handle(request);
 });
 
-app.MapGet("/books", async (ReadBookRequest request, ReadBookHandler handler) =>
+app.MapPost("/books/query", async ([FromBody] ReadBookRequest request, [FromServices] ReadBookHandler handler) =>
 {
     return await handler.Handle(request);
 });
@@ -58,22 +59,22 @@ app.MapGet("books/all", async (BookManagementContext dbContext) =>
     return Results.Ok(books);
 });
 
-app.MapDelete("/books", async (DeleteBookRequest request, DeleteBookHandler handler) =>
+app.MapDelete("/books/{id:guid}", async (Guid id, [FromServices] DeleteBookHandler handler) =>
+{
+    return await handler.Handle(new DeleteBookRequest(id));
+});
+
+app.MapPut("/books", async ([FromBody] UpdateBookRequest request, [FromServices] UpdateBookHandler handler) =>
 {
     return await handler.Handle(request);
 });
 
-app.MapPut("/books", async (UpdateBookRequest request, UpdateBookHandler handler) =>
+app.MapPost("/books/author", async ([FromBody] GetBooksByAuthorRequest request, [FromServices] GetBooksByAuthorHandler handler) =>
 {
     return await handler.Handle(request);
 });
 
-app.MapGet("/books/author", async (GetBooksByAuthorRequest request, GetBooksByAuthorHandler handler) =>
-{
-    return await handler.Handle(request);
-});
-
-app.MapGet("/books/sorted", async (GetBookSortedByTitleOrYearRequest request, GetBookSortedByTitleOrYearHandler handler) =>
+app.MapPost("/books/sorted", async ([FromBody] GetBookSortedByTitleOrYearRequest request, [FromServices] GetBookSortedByTitleOrYearHandler handler) =>
 {
     return await handler.Handle(request);
 });
