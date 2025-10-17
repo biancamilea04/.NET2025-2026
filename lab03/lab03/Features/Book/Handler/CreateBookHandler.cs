@@ -16,7 +16,6 @@ public class CreateBookHandler
     {
         if (!int.TryParse(request.Year, out var year) || request.Year.Length != 4)
         {
-            // Throw an ApiException so the middleware returns a 400 JSON response
             throw new ApiException("Year must be a valid four-digit number.", statusCode: 400);
         }
 

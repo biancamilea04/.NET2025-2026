@@ -18,7 +18,6 @@ public class DeleteBookHandler
         var book = await _dbContext.Books.FirstOrDefaultAsync(book => book.Id == request.Id);
         if (book is null)
         {
-            // Throw ApiException with 404 to be formatted by middleware
             throw new ApiException("Book not found.", statusCode: 404);
         }
 
