@@ -52,6 +52,12 @@ app.MapGet("/books", async (ReadBookRequest request, ReadBookHandler handler) =>
     return await handler.Handle(request);
 });
 
+app.MapGet("books/all", async (BookManagementContext dbContext) =>
+{
+    var books = await dbContext.Books.ToListAsync();
+    return Results.Ok(books);
+});
+
 app.MapDelete("/books", async (DeleteBookRequest request, DeleteBookHandler handler) =>
 {
     return await handler.Handle(request);
