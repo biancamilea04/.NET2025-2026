@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "gaTfeW5L0ag=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Bianca Milea\\Desktop\\uni\\III\\.NET2025-2026\\ProductManagement\\ProductManagement\\ProductManagement.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Bianca Milea\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.9\\microsoft.aspnetcore.openapi.9.0.9.nupkg.sha512",
+    "C:\\Users\\Bianca Milea\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
