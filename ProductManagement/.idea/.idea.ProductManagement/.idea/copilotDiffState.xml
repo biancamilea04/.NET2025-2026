@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/ProductManagement/Features/Product/DTOs/ProductProfileDTO.cs">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/ProductManagement/Features/Product/DTOs/ProductProfileDTO.cs" />
+              <option name="originalContent" value="namespace ProductManagement.Features.Product;&#10;&#10;public class ProductProfileDTO&#10;{&#10;    Guid Id { get; init; }&#10;    string Name { get; init; }&#10;    string Brand { get; init; }&#10;    string SKU { get; init; }&#10;    decimal Price { get; init; }&#10;    string FormattedPrice { get; init; }&#10;    DateTime ReleaseDate { get; init; }&#10;    DateTime CreatedAt { get; init; }&#10;    string? ImageUrl { get; init; }&#10;&#10;    bool IsAvailable { get; init; }&#10;    int StockQuantity { get; init; }&#10;    string ProductAge { get; init; }&#10;    string BrandInitials { get; init; }&#10;    string AvailabilityStatus { get; init; }&#10;}" />
+              <option name="updatedContent" value="namespace ProductManagement.Features.Product.DTOs;&#10;&#10;public class ProductProfileDTO&#10;{&#10;    public Guid Id { get; init; }&#10;    public string Name { get; init; } = string.Empty;&#10;    public string Brand { get; init; } = string.Empty;&#10;    public string SKU { get; init; } = string.Empty;&#10;    public decimal Price { get; init; }&#10;    public string FormattedPrice { get; init; } = string.Empty;&#10;    public DateTime ReleaseDate { get; init; }&#10;    public DateTime CreatedAt { get; init; }&#10;    public string? ImageUrl { get; init; }&#10;&#10;    public bool IsAvailable { get; init; }&#10;    public int StockQuantity { get; init; }&#10;    public string ProductAge { get; init; } = string.Empty;&#10;    public string BrandInitials { get; init; } = string.Empty;&#10;    public string AvailabilityStatus { get; init; } = string.Empty;&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/ProductManagement/Features/Product/LogEvents.cs">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/ProductManagement/Features/Product/LogEvents.cs" />
+              <option name="updatedContent" value="namespace ProductManagement.Features.Product;&#10;&#10;public static class LogEvents&#10;{&#10;    public const int ProductCreationStarted = 2001;&#10;    public const int ProductValidationFailed = 2002;&#10;    public const int ProductCreationCompleted = 2003;&#10;    public const int DatabaseOperationStarted = 2004;&#10;    public const int DatabaseOperationCompleted = 2005;&#10;    public const int CacheOperationPerformed = 2006;&#10;    public const int SKUValidationPerformed = 2007;&#10;    public const int StockValidationPerformed = 2008;&#10;}&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
