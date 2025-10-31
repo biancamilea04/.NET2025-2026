@@ -9,4 +9,7 @@ public record Product(
     DateTime ReleaseDate,
     string? ImageUrl,
     bool IsAvaliable,
-    int StockQuantity = 0);
+    int StockQuantity = 0,
+    Guid Id = default,
+    DateTime CreatedAt = default,
+    DateTime? UpdatedAt = null);

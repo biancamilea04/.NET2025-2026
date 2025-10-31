@@ -17,4 +17,5 @@ public class ProductProfileDTO
     public string ProductAge { get; init; } = string.Empty;
     public string BrandInitials { get; init; } = string.Empty;
     public string AvailabilityStatus { get; init; } = string.Empty;
+    public string Category { get; init; } = string.Empty;
 }

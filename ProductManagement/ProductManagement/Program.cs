@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using ProductManagement.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
