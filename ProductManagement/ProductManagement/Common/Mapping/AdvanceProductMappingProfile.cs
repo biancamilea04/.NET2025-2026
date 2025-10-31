@@ -2,6 +2,7 @@
 using ProductManagement.Features.Product;
 using ProductManagement.Features.Product.DTOs;
 using System.Globalization;
+using System.Linq;
 
 namespace ProductManagement.Common.Mapping;
 
@@ -45,43 +46,69 @@ public class AdvanceProductMappingProfile : Profile
 
     private static string FormatPrice(decimal price)
     {
-        return price.ToString("C", CultureInfo.CurrentCulture);
+        // Format as currency with two decimals
+        return price.ToString("C2", CultureInfo.CurrentCulture);
     }
 
     private static string ResolveProductAge(Product source)
     {
         var days = (DateTime.UtcNow - source.ReleaseDate).Days;
-        return days switch
+        if (days < 0) return "Not released";
+        if (days < 30) return "New Release";
+        if (days == 1825) return "Classic";
+        if (days < 365)
         {
-            < 0 => "Not released",
-            0 => "New",
-            1 => "1 day",
-            _ => $"{days} days"
-        };
+            var months = Math.Max(1, days / 30);
+            return $"{months} months old";
+        }
+
+        if (days < 1825)
+        {
+            var years = days / 365;
+            return $"{years} years old";
+        }
+
+        // days > 1825
+        var yrs = days / 365;
+        return $"{yrs} years old";
     }
 
     private static string ResolveBrandInitials(Product source)
     {
-        var brandOrName = !string.IsNullOrWhiteSpace(source.Description) ? source.Description : source.Name;
-        var parts = brandOrName.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-        if (parts.Length == 0) return string.Empty;
-        return string.Concat(parts.Select(p => p[0])).ToUpperInvariant();
+        var brand = GetBrandFromDescriptionOrEmpty(source.Description);
+        if (string.IsNullOrWhiteSpace(brand)) return "?";
+
+        var parts = brand.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        if (parts.Length == 1)
+        {
+            return parts[0][0].ToString().ToUpperInvariant();
+        }
+        
+        var first = parts[0][0];
+        var last = parts[^1][0];
+        return string.Concat(char.ToUpperInvariant(first), char.ToUpperInvariant(last));
     }
 
     private static string ResolveAvailabilityStatus(Product source)
     {
-        return source.IsAvaliable ? "Available" : "Unavailable";
+        if (!source.IsAvaliable) return "Out of Stock";
+
+        var qty = source.StockQuantity;
+        if (qty == 0) return "Unavailable";
+        if (qty == 1) return "Last Item";
+        if (qty <= 5) return "Limited Stock";
+        return "In Stock";
     }
 
     private static string ResolveCategoryDisplay(Product source)
     {
         return source.Category switch
         {
-            ProductCategory.Electronics => "Electronics",
-            ProductCategory.Clothing => "Clothing",
-            ProductCategory.Books => "Books",
-            ProductCategory.Home => "Home",
-            _ => "Other"
+            ProductCategory.Electronics => "Electronics & Technology",
+            ProductCategory.Clothing => "Clothing & Fashion",
+            ProductCategory.Books => "Books & Media",
+            ProductCategory.Home => "Home & Garden",
+            _ => "Uncategorized"
         };
     }
 
