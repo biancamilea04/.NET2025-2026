@@ -1,4 +1,4 @@
-﻿namespace ProductManagement.Features.Product;
+﻿namespace ProductManagement.Features.Request;
 
 public record CreateProductProfileRequest(
     string Name,
@@ -7,5 +7,6 @@ public record CreateProductProfileRequest(
     ProductCategory Category,
     decimal Price,
     DateTime ReleaseDate,
-    string? ImageUrl,
-    int StockQuantity = 1);
+    string? ImageUrl = null ,
+    int StockQuantity = 1
+    );
