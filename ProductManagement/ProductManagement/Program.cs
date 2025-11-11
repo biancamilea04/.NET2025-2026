@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ProductManagement.Persistence;
+using ProductManagement.Common.Middelware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +16,8 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.UseMiddleware<CollerationMiddleware>();
+
 app.UseHttpsRedirection();
 
-app.Run();
-
+await app.RunAsync();
