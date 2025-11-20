@@ -1,11 +1,14 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0560680a_002D4b75_002D4863_002D8ae7_002D5f7b5c79590e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from CreateProductHandlerIntegrationTests.cs #5" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;ProjectFile&gt;85D08766-3623-45C8-95E8-35C691AE9217/f:CreateProductHandlerIntegrationTests.cs&lt;/ProjectFile&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=19d1ffbc_002D3f5b_002D44c2_002Da0d6_002D4e50557bf725/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from CreateProductHandlerIntegrationTests.cs #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;ProjectFile&gt;85D08766-3623-45C8-95E8-35C691AE9217/f:CreateProductHandlerIntegrationTests.cs&lt;/ProjectFile&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=605abd4f_002De8d6_002D42e9_002D9d45_002De0c9e2c22c39/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from CreateProductHandlerIntegrationTests.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;ProjectFile&gt;85D08766-3623-45C8-95E8-35C691AE9217/f:CreateProductHandlerIntegrationTests.cs&lt;/ProjectFile&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f0c695a4_002D1c14_002D48f3_002D9c74_002Df83ab9d92f99/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from CreateProductHandlerIntegrationTests.cs #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f0c695a4_002D1c14_002D48f3_002D9c74_002Df83ab9d92f99/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from CreateProductHandlerIntegrationTests.cs #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;ProjectFile&gt;85D08766-3623-45C8-95E8-35C691AE9217/f:CreateProductHandlerIntegrationTests.cs&lt;/ProjectFile&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=faf9c577_002Df74c_002D41ee_002D8fdb_002D0ab65a696dfe/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from CreateProductHandlerIntegrationTests.cs #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;

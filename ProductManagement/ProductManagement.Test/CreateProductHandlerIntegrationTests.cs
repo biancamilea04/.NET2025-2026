@@ -188,6 +188,7 @@ public class CreateProductHandlerIntegrationTests : IDisposable
         Assert.Null(productDto.ImageUrl);
     }
 
+    
     public void Dispose()
     {
         _context?.Dispose();

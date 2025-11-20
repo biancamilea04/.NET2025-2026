@@ -8,7 +8,7 @@ namespace ProductManagement.Common.Middelware;
 /// Middleware for managing HTTP request correlation IDs.
 /// Ensures each request has a unique correlation ID for distributed tracing and log correlation.
 /// </summary>
-public class CorrerationMiddleware(RequestDelegate next, ILogger<CorrerationMiddleware> logger)
+public class CorrelationMiddleware(RequestDelegate next, ILogger<CorrelationMiddleware> logger)
 {
     private const string HeaderName = "X-Correlation-ID";
 

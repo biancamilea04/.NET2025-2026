@@ -5,11 +5,15 @@ using ProductManagement.Persistence;
 using ProductManagement.Common.Middelware;
 using ProductManagement.Features.Products;
 using ProductManagement.Features.Request;
+using ProductManagement.Features.DTOs;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddOpenApi();
+
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
     {
         c.SwaggerDoc(
@@ -24,21 +28,30 @@ builder.Services.AddSwaggerGen(c =>
     }
 );
 
-builder.Services.AddOpenApi();
-builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddDbContext<ApplicationContext>(options =>
     options.UseSqlite("Data Source=productmanagement.db"));
+
+builder.Services.AddAutoMapper(cfg => cfg.AddProfile<AdvancedProductMappingProfile>(), typeof(AdvancedProductMappingProfile));
 
 builder.Services.AddScoped<CreateProductHandler>();
 builder.Services.AddScoped<GetByIdProductHandler>();
 builder.Services.AddScoped<GetAllProductsHandler>();
+builder.Services.AddScoped<GetProductMetricsHandler>();
 
-builder.Services.AddAutoMapper(cfg => cfg.AddProfile<AdvancedProductMappingProfile>(), typeof(AdvancedProductMappingProfile));
+builder.Services.AddMemoryCache();
 
 builder.Services.AddValidatorsFromAssemblyContaining<CreateProductProfileRequest>();
 builder.Services.AddFluentValidationAutoValidation();
 
+builder.Services.AddLogging(config =>
+{
+    config.AddConsole();
+    config.AddDebug();
+});
+
 var app = builder.Build();
+
+app.UseMiddleware<CorrelationMiddleware>();
 
 using (var scope = app.Services.CreateScope())
 {
@@ -60,8 +73,6 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseMiddleware<CorrerationMiddleware>();
-
 app.UseHttpsRedirection();
 
 app.MapPost("/products", async ( CreateProductProfileRequest req, CreateProductHandler handler ) =>
@@ -70,5 +81,13 @@ app.MapGet("/products/{id:guid}", async ( Guid id, GetByIdProductHandler handler
     await handler.Handle(new GetByIdProductRequest(id) ));
 app.MapGet("/products", async (GetAllProductsHandler handler) =>
     await handler.Handle());
+app.MapGet("/products/metrics/dashboard", async (GetProductMetricsHandler handler, CancellationToken ct) =>
+    await handler.Handle(ct))
+    .WithName("GetProductMetrics")
+    .WithOpenApi()
+    .Produces<ProductMetricsDto>(statusCode: 200)
+    .WithTags("Product Metrics")
+    .WithSummary("Get Product Metrics Dashboard")
+    .WithDescription("Returns aggregated product metrics including inventory value, stock status breakdown, category distribution, and top products by price");
 
 await app.RunAsync();
