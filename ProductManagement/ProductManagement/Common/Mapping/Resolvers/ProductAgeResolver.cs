@@ -4,8 +4,20 @@ using ProductManagement.Features.DTOs;
 
 namespace ProductManagement.Common.Mapping.Resolvers;
 
+/// <summary>
+/// Resolves the product age display string based on the release date.
+/// Converts elapsed time since release into human-readable categories (New Release, months old, years old, Classic, Vintage).
+/// </summary>
 public class ProductAgeResolver : IValueResolver<Product, ProductProfileDto, string>
 {
+    /// <summary>
+    /// Resolves the product age from the release date to a display string.
+    /// </summary>
+    /// <param name="source">The source Product entity.</param>
+    /// <param name="productProfileDto">The destination ProductProfileDto.</param>
+    /// <param name="destMember">The destination member name.</param>
+    /// <param name="context">The AutoMapper resolution context.</param>
+    /// <returns>A human-readable string describing the product's age.</returns>
     public string Resolve(Product source, ProductProfileDto productProfileDto, string destMember,
         ResolutionContext context)
     {

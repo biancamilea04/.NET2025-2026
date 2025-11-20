@@ -4,11 +4,21 @@ using System.Globalization;
 
 namespace ProductManagement.Validators.Attributes;
 
+/// <summary>
+/// Validation attribute for enforcing price range constraints on decimal values.
+/// Validates that a price falls within the specified minimum and maximum bounds.
+/// </summary>
 public class PriceRangeAttribute : ValidationAttribute
 {
     private readonly decimal _min;
     private readonly decimal _max;
 
+    /// <summary>
+    /// Initializes a new instance of the PriceRangeAttribute class.
+    /// </summary>
+    /// <param name="min">The minimum allowed price value.</param>
+    /// <param name="max">The maximum allowed price value.</param>
+    /// <exception cref="ArgumentException">Thrown when min is greater than max.</exception>
     public PriceRangeAttribute(double min, double max)
     {
         if (min > max)
@@ -18,7 +28,13 @@ public class PriceRangeAttribute : ValidationAttribute
         _max = Convert.ToDecimal(max);
     }
 
-   protected override ValidationResult IsValid(object? value, ValidationContext validationContext)
+    /// <summary>
+    /// Validates that the provided value is a valid price within the specified range.
+    /// </summary>
+    /// <param name="value">The price value to validate. Can be decimal, IConvertible, or string.</param>
+    /// <param name="validationContext">The validation context containing metadata about the validation operation.</param>
+    /// <returns>A ValidationResult indicating success or failure with appropriate error message.</returns>
+    protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
     {
         if (value is null)
             return ValidationResult.Success;
@@ -55,6 +71,11 @@ public class PriceRangeAttribute : ValidationAttribute
         return ValidationResult.Success;
     }
 
+    /// <summary>
+    /// Formats the error message with the price range bounds.
+    /// </summary>
+    /// <param name="name">The name of the property being validated.</param>
+    /// <returns>A formatted error message with minimum and maximum price values.</returns>
     public override string FormatErrorMessage(string name)
     {
         var minStr = _min.ToString("C", CultureInfo.CurrentCulture);

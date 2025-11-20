@@ -67,7 +67,7 @@ app.UseHttpsRedirection();
 app.MapPost("/products", async ( CreateProductProfileRequest req, CreateProductHandler handler ) =>
     await handler.Handle(req));
 app.MapGet("/products/{id:guid}", async ( Guid id, GetByIdProductHandler handler ) =>
-    await handler.Handler(new GetByIdProductRequest(id) ));
+    await handler.Handle(new GetByIdProductRequest(id) ));
 app.MapGet("/products", async (GetAllProductsHandler handler) =>
     await handler.Handle());
 

@@ -11,8 +11,19 @@ using FluentValidation;
 
 namespace ProductManagement.Features.Products;
 
+/// <summary>
+/// Handler for creating new products in the Product Management system.
+/// Orchestrates validation, mapping, and database persistence of product creation requests.
+/// </summary>
 public class CreateProductHandler(IMapper mapper, ApplicationContext context , ILogger<CreateProductHandler> logger, IValidator<CreateProductProfileRequest> validator )
 {
+    /// <summary>
+    /// Handles the creation of a new product asynchronously.
+    /// Validates the request, maps it to a product entity, persists to database, and logs metrics.
+    /// </summary>
+    /// <param name="request">The product creation request containing product details.</param>
+    /// <returns>An <see cref="IResult"/> containing the created ProductProfileDto or an error response.</returns>
+    /// <exception cref="ValidationException">Thrown if the product request fails validation.</exception>
     public async Task<IResult> Handle(CreateProductProfileRequest request)
     {
         var operationId = Guid.NewGuid().ToString("N").Substring(0,8);

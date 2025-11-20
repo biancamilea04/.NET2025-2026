@@ -7,8 +7,16 @@ using System.Linq;
 
 namespace ProductManagement.Common.Mapping;
 
+/// <summary>
+/// AutoMapper profile for advanced product mapping between entities and DTOs.
+/// Defines all mapping configurations including value resolvers for computed properties.
+/// </summary>
 public class AdvancedProductMappingProfile : Profile
 {
+    /// <summary>
+    /// Initializes a new instance of the AdvancedProductMappingProfile class.
+    /// Configures all product-related mapping rules including property transformations and value resolution.
+    /// </summary>
     public AdvancedProductMappingProfile()
     {
         CreateMap<Product, CreateProductProfileRequest>();

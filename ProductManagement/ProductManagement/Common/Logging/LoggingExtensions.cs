@@ -4,8 +4,18 @@ using ProductManagement.Features;
 
 namespace ProductManagement.Common.Logging;
 
+/// <summary>
+/// Extension methods for logging product-related operations.
+/// Provides specialized logging methods for product creation metrics and structured logging.
+/// </summary>
 public static class LoggingExtensions
 {
+    /// <summary>
+    /// Logs comprehensive metrics for a product creation operation.
+    /// Formats timing and status information into a structured log entry.
+    /// </summary>
+    /// <param name="logger">The logger instance to write the log message.</param>
+    /// <param name="metrics">The ProductCreationMetrics object containing operation details.</param>
     public static void LogProductCreationMetrics(this ILogger logger, ProductCreationMetrics metrics)
     {
         var validationMs = metrics.ValidationDuration.TotalMilliseconds.ToString("F0", CultureInfo.InvariantCulture);
