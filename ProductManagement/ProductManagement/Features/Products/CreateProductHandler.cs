@@ -65,7 +65,7 @@ public class CreateProductHandler(IMapper mapper, ApplicationContext context , I
 
                 logger.LogProductCreationMetrics(metrics);
 
-                return Results.Created(productEntity.Id.ToString(), product);
+                return Results.Ok(product);
             }
             catch (Exception ex)
             {

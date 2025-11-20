@@ -10,14 +10,14 @@ public static class LogEvents
     public const int DatabaseOperationStarted = 2004;
     public const int DatabaseOperationCompleted = 2005;
     public const int CacheOperationPerformed = 2006;
-    public const int SkuValidationPerformed = 2007;
+    public const int SKUValidationPerformed = 2007;
     public const int StockValidationPerformed = 2008;
 }
 
 public record ProductCreationMetrics(
     string OperationId,
     string ProductName,
-    string Sku,
+    string SKU,
     ProductCategory Category,
     TimeSpan ValidationDuration,
     TimeSpan DatabaseSaveDuration,

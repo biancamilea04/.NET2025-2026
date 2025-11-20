@@ -20,11 +20,11 @@ public static class LoggingExtensions
         {
             message += ", Error={ErrorReason}";
             logger.Log(LogLevel.Error, new EventId(LogEvents.ProductCreationCompleted), message,
-                metrics.OperationId, metrics.ProductName, metrics.Sku, metrics.Category, validationMs, dbMs, totalMs, status, metrics.ErrorReason);
+                metrics.OperationId, metrics.ProductName, metrics.SKU, metrics.Category, validationMs, dbMs, totalMs, status, metrics.ErrorReason);
             return;
         }
 
         logger.LogInformation(new EventId(LogEvents.ProductCreationCompleted), message,
-            metrics.OperationId, metrics.ProductName, metrics.Sku, metrics.Category, validationMs, dbMs, totalMs, status);
+            metrics.OperationId, metrics.ProductName, metrics.SKU, metrics.Category, validationMs, dbMs, totalMs, status);
     }
 }

@@ -1,6 +1,4 @@
-﻿using lab02;
-
-// ======= Records =======
+﻿// ======= Records =======
 Book book1 = new Book("1984", "George Orwell", 2011);
 Book book2 = new Book("To Kill a Mockingbird", "Harper Lee", 1960);
 Book book3 = new Book("The Great Gatsby", "F. Scott Fitzgerald" , 1925);

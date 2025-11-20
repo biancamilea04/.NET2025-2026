@@ -1,6 +1,4 @@
-﻿namespace lab02;
-
-public class Librarian
+﻿public class Librarian
 {
     public string Name { get; init; }
     public string Email { get; init; }
