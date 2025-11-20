@@ -13,7 +13,7 @@ namespace ProductManagement.Features.Products;
 
 public class CreateProductHandler(IMapper mapper, ApplicationContext context , ILogger<CreateProductHandler> logger, IValidator<CreateProductProfileRequest> validator )
 {
-    public ProductProfileDto Handle(CreateProductProfileRequest request)
+    public async Task<IResult> Handle(CreateProductProfileRequest request)
     {
         var operationId = Guid.NewGuid().ToString("N").Substring(0,8);
         var overall = Stopwatch.StartNew();
@@ -37,8 +37,8 @@ public class CreateProductHandler(IMapper mapper, ApplicationContext context , I
 
                 validation.Stop();
 
-                var product = mapper.Map<ProductProfileDto>(request);
                 var productEntity = mapper.Map<Product>(request);
+                var product = mapper.Map<ProductProfileDto>(productEntity);
 
                 logger.LogDebug(new EventId(LogEvents.DatabaseOperationStarted), "Starting database save for operation {OperationId}", operationId);
                 var dbWatch = Stopwatch.StartNew();
@@ -65,7 +65,7 @@ public class CreateProductHandler(IMapper mapper, ApplicationContext context , I
 
                 logger.LogProductCreationMetrics(metrics);
 
-                return product;
+                return Results.Created(productEntity.Id.ToString(), product);
             }
             catch (Exception ex)
             {
